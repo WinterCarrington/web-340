@@ -1,2 +1,5 @@
-# web-340
-Assignments for web-340 node.js
+# WEB 340 Node.js
+
+## Contributors
+- Instructor: Richard Krasso
+- Student: Lantha Wade 
