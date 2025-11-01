@@ -1,0 +1,10 @@
+/**
+ * Author: Lantha Wade
+ * Date: 11/03/25
+ * File Name: index.js
+ * Description: Recipe app
+ */
+
+// TODO: Import your module using require
+
+// TODO: Implement your CLI program here
