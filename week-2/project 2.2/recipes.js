@@ -11,23 +11,25 @@ function createRecipe(ingredients) {
     return "No ingredients provided.";
   }
   const list = ingredients.join(", ");
-  return 'Recipe created with ingredients:${list};'
+  return `Recipe created with ingredients: ${list}`;
 }
 
 // Define the setTimer function
-function createRecipe(ingredients) {
-  if (!Array.isArray(ingredients) || ingredients.length === 0) {
-    return "No ingredients provided.";
+function setTimer(minutes) {
+  if (isNaN(minutes) || minutes <= 0) {
+    return "Please enter a valid number of minutes.";
   }
-  const list = ingredients.join(", ");
-  return 'Recipe created with ingredients: ${list};'
-}
-// Define the quit function
-function quit() {
-    return "Program exited";
-    
-}
-  // TODO: Implement this function
+  return `Timer set for ${minutes} minutes.`;
 }
 
-// TODO: Export the functions
+// Define the quit function
+function quit() {
+  return "Program exited";
+}
+
+// Export the functions
+module.exports = {
+  createRecipe,
+  setTimer,
+  quit
+};
