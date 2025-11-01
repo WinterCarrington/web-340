@@ -6,27 +6,27 @@
  */
 
 // Import your module using require
-const { createRecipe, setTimer, quit } = require('./recipes');
+const { createRecipe, setTimer, quit } = require("./recipes");
 
 // Implement your CLI program
 const args = process.argv.slice(2);
 const command = args[0];
 
 switch (command) {
-  case 'create':
+  case "create":
     const ingredients = args.slice(1);
     console.log(createRecipe(ingredients));
     break;
 
-  case 'timer':
+  case "timer":
     const minutes = parseInt(args[1]);
     console.log(setTimer(minutes));
     break;
 
-  case 'quit':
+  case "quit":
     console.log(quit());
     break;
 
   default:
-    console.log('Usage: node index.js <create|timer|quit> [arguments]');
+    console.log("Usage: node index.js <create|timer|quit> [arguments]");
 }
