@@ -7,14 +7,21 @@
 
 // Define the createRecipe function
 function createRecipe(ingredients) {
-  // TODO: Implement this function
+  if (!Array.isArray(ingredients) || ingredients.length === 0) {
+    return "No ingredients provided.";
+  }
+  const list = ingredients.join(", ");
+  return 'Recipe created with ingredients:${list};'
 }
 
 // Define the setTimer function
-function setTimer(minutes) {
-  // TODO: Implement this function
+function createRecipe(ingredients) {
+  if (!Array.isArray(ingredients) || ingredients.length === 0) {
+    return "No ingredients provided.";
+  }
+  const list = ingredients.join(", ");
+  return Recipe created with ingredients: ${list};
 }
-
 // Define the quit function
 function quit() {
   // TODO: Implement this function
