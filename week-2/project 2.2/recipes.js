@@ -20,10 +20,13 @@ function createRecipe(ingredients) {
     return "No ingredients provided.";
   }
   const list = ingredients.join(", ");
-  return Recipe created with ingredients: ${list};
+  return 'Recipe created with ingredients: ${list};'
 }
 // Define the quit function
 function quit() {
+    return "Program exited";
+    
+}
   // TODO: Implement this function
 }
 
