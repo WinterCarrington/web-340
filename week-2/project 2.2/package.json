@@ -1,0 +1,12 @@
+{
+  "name": "recipe-app",
+  "version": "1.0.0",
+  "description": "A simple CLI recipe app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node tester.js"
+  },
+  "author": "Lantha Wade",
+  "license": "ISC"
+}
