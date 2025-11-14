@@ -7,23 +7,21 @@
 
 "use strict";
 
-const readline = require("readline");
-const TacoStandEmitter = require("./tacoStand");
+const EventEmitter = require("events");
 
-const tacoStand = new TacoStandEmitter();
+// TODO: Create a TacoStandEmitter class that extends EventEmitter
+class TacoStandEmitter extends EventEmitter {
+  serveCustomer(customer) {
+    this.emit("serve", customer);
+  }
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+  prepareTaco(taco) {
+    this.emit("prepare", taco);
+  }
 
-// TODO: Set up event listeners for the tacoStand object
-rl.on("line", (input) => {
-  const [command, ...args] = input.split(" ");
+  handleRush(rush) {
+    this.emit("rush", rush);
+  }
+}
 
-  // TODO: Handle the commands
-});
-
-console.log(
-  `Enter a command: "serve", "prepare", or "rush", followed by a space and the argument.`
-);
+module.exports = TacoStandEmitter;
