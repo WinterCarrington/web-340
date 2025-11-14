@@ -1,15 +1,12 @@
 {
   "name": "taco-stand-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Project 4.2 Taco Stand TDD",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/taco-stand.spec.js",
+    "start": "node index.js"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Lantha Wade",
   "license": "ISC"
 }
