@@ -1,5 +1,5 @@
 /**
- * Author: Lantha Wade 
+ * Author: Lantha Wade
  * Date: 11/17/25
  * File Name: taco-stand.spec.js
  * Description: Project 4.2
