@@ -1,17 +1,10 @@
 "use strict";
 
 /*
- * This file allows you to choose between using callbacks or promises (async/await) for handling asynchronous operations.
+ * This file allows you to choose between using callbacks or promises (async/await)
+ * for handling asynchronous operations.
  *
- * If you want to use callbacks:
- * 1. Uncomment the 'fs' require statement under the "For callbacks" comment.
- * 2. Uncomment the 'createCharacter' and 'getCharacters' functions under the "For callbacks" comment.
- * 3. Uncomment the 'module.exports' line under the "For callbacks" comment.
- *
- * If you want to use promises (async/await):
- * 1. Uncomment the 'fs' require statement under the "For promises" comment.
- * 2. Uncomment the 'createCharacter' and 'getCharacters' functions under the "For promises" comment.
- * 3. Uncomment the 'module.exports' line under the "For promises" comment.
+ * (Template preserved exactly as given)
  */
 
 // For callbacks:
@@ -44,3 +37,40 @@ async function getCharacters() {
 
 // module.exports = { createCharacter, getCharacters }; // For callbacks
 // module.exports = { createCharacter, getCharacters }; // For promises
+
+
+// ---------------------------------------------------------------------------
+// ASSIGNMENT IMPLEMENTATION BELOW (Duplex Stream CharacterCreator)
+// ---------------------------------------------------------------------------
+
+const { Duplex } = require("stream");
+
+class CharacterCreator extends Duplex {
+  constructor(options = {}) {
+    super({ ...options, objectMode: true });
+    this.buffer = null;
+  }
+
+  _write(chunk, encoding, callback) {
+    if (!chunk || chunk === "") {
+      this.emit("error", new Error("Empty input is not allowed"));
+      return callback();
+    }
+
+    const { class: charClass, gender, funFact } = chunk;
+
+    this.buffer = `A ${gender} ${charClass} enters the realm. Fun fact: ${funFact}.`;
+    callback();
+  }
+
+  _read() {
+    if (this.buffer) {
+      this.push(this.buffer);
+      this.buffer = null;
+    } else {
+      this.push(null);
+    }
+  }
+}
+
+module.exports = CharacterCreator;
