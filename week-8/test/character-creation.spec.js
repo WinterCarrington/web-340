@@ -1,14 +1,13 @@
 const CharacterCreator = require("../src/character-creator");
 
 describe("CharacterCreator Stream", () => {
-
   test("processes data correctly when written to", (done) => {
     const creator = new CharacterCreator();
 
     creator.write({
       class: "Warrior",
       gender: "Male",
-      funFact: "Collects enchanted swords"
+      funFact: "Collects enchanted swords",
     });
 
     creator.end();
@@ -37,17 +36,17 @@ describe("CharacterCreator Stream", () => {
     const input = {
       class: "Mage",
       gender: "Other",
-      funFact: "Knows 73 magical languages"
+      funFact: "Knows 73 magical languages",
     };
 
     creator.write(input);
     creator.end();
 
     creator.on("data", (result) => {
-      expect(result)
-        .toBe("A Other Mage enters the realm. Fun fact: Knows 73 magical languages.");
+      expect(result).toBe(
+        "A Other Mage enters the realm. Fun fact: Knows 73 magical languages."
+      );
       done();
     });
   });
-
 });
