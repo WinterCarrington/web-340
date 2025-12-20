@@ -1,14 +1,21 @@
-// game-characters.js
-const { spawn } = require("child_process");
+// TODO: Implement this script
 
-class GameCharacters {
-  constructor() {
-    // TODO: Set the script file path
+const characters = [
+  {
+    class: "Warrior",
+    gender: "Female",
+    quirk: "Collects enchanted spoons"
+  },
+  {
+    class: "Mage",
+    gender: "Other",
+    quirk: "Talks to their spellbook"
+  },
+  {
+    class: "Rogue",
+    gender: "Male",
+    quirk: "Steals only left shoes"
   }
+];
 
-  getCharacters(callback) {
-    // TODO: Implement this method
-  }
-}
-
-module.exports = { GameCharacters };
+console.log(JSON.stringify(characters));
