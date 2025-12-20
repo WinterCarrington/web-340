@@ -1,21 +1,42 @@
-// TODO: Implement this script
+// game-characters.js
+const { spawn } = require("child_process");
+const path = require("path");
 
-const characters = [
-  {
-    class: "Warrior",
-    gender: "Female",
-    quirk: "Collects enchanted spoons"
-  },
-  {
-    class: "Mage",
-    gender: "Other",
-    quirk: "Talks to their spellbook"
-  },
-  {
-    class: "Rogue",
-    gender: "Male",
-    quirk: "Steals only left shoes"
+class GameCharacters {
+  constructor(scriptName) {
+    // TODO: Set the script file path
+    this.scriptPath = path.join(__dirname, scriptName);
   }
-];
 
-console.log(JSON.stringify(characters));
+  getCharacters(callback) {
+    // TODO: Implement this method
+
+    const child = spawn("node", [this.scriptPath]);
+
+    let output = "";
+    let errorOutput = "";
+
+    child.stdout.on("data", (data) => {
+      output += data.toString();
+    });
+
+    child.stderr.on("data", (data) => {
+      errorOutput += data.toString();
+    });
+
+    child.on("close", (code) => {
+      if (code !== 0) {
+        return callback(new Error(errorOutput || "Script failed"), null);
+      }
+
+      try {
+        const parsed = JSON.parse(output);
+        callback(null, parsed);
+      } catch (err) {
+        callback(err, null);
+      }
+    });
+  }
+}
+
+module.exports = { GameCharacters };
